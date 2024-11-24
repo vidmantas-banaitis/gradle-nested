@@ -1,18 +1,18 @@
 rootProject.name = "gradle-nested"
 
-fun recursiveInclude(parent:String, dir: File) {
+fun resolveProject(modulePath: String) {
+    include(modulePath)
+
+    // enhance module based on key in ".p" file
+}
+
+fun recursiveInclude(parent: String, dir: File) {
     dir.listFiles().forEach {
         if (it.isDirectory && it.resolve(".p").exists()) {
-//            val p = it.resolve(".p")
-            println("found: ${it.name}")
-            if (parent != "") {
-                println("including: $parent:${it.name}")
-                include("$parent:${it.name}")
-            } else {
-                println("including: ${it.name}")
-                include(it.name)
-            }
-            recursiveInclude("$parent:${it.name}",it)
+            println("including: $parent${it.name}")
+            resolveProject("$parent${it.name}")
+
+            recursiveInclude("$parent${it.name}:", it)
         }
     }
 }
