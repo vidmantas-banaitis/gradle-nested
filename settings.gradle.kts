@@ -5,20 +5,21 @@ fun resolveModule(modulePath: String) {
     include(modulePath)
 
     project(modulePath).apply {
+        extra["extend"] = mutableListOf<Configurable<Project>>()
         val config = file("$projectDir/.p")
         config.useLines { lines ->
             lines.forEach { line ->
                 println("  $line")
                 when (line) {
                     "group" -> {
-                        extra["extend"] =
-                            { } // TODO: configuration or extension to project to be used in build.gradle.kts
+                        extra["extend"] += configure<Project> { }
+                        // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO: group = "${parent!!.group}.${name}"
                     }
 
                     "java" -> {
-                        extra["extend"] =
-                            { } // TODO: configuration or extension to project to be used in build.gradle.kts
+                        extra["extend"] += configure<Project> { }
+                        // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // apply(plugin = "java")
                         // apply(plugin = "io.spring.dependency-management")
@@ -35,8 +36,8 @@ fun resolveModule(modulePath: String) {
                     }
 
                     "spring" -> {
-                        extra["extend"] =
-                            { } // TODO: configuration or extension to project to be used in build.gradle.kts
+                        extra["extend"] += configure<Project> { }
+                        // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // dependencies {
                         //     implementation("org.springframework:spring-core")
@@ -44,8 +45,8 @@ fun resolveModule(modulePath: String) {
                     }
 
                     "springboot" -> {
-                        extra["extend"] =
-                            { } // TODO: configuration or extension to project to be used in build.gradle.kts
+                        extra["extend"] += configure<Project> {  }
+                        // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // apply(plugin = "org.springframework.boot")
                         // dependencies {
