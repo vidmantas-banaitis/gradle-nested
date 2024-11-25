@@ -12,6 +12,8 @@ dependencyManagement {
 }
 subprojects {
     println("$name in main build.gradle.kts")
+    // TODO: apply from extra["extend"]
+
     file(".p").useLines { lines ->
         lines.forEach { line ->
             when (line) {
