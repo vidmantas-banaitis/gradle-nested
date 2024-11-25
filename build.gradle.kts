@@ -1,8 +1,8 @@
 group = "org.example"
 version = "1.0.0-SNAPSHOT"
 plugins {
-    id("io.spring.dependency-management") version "1.1.6" apply false
-    id("org.springframework.boot") version "3.3.3" apply false
+    id("io.spring.dependency-management") version "1.1.6"
+//    id("org.springframework.boot") version "3.3.3" apply false
 }
 
 subprojects {
@@ -16,7 +16,7 @@ subprojects {
                 "java" -> {
                     apply(plugin = "java")
                     apply(plugin = "io.spring.dependency-management")
-                    // apply junit5
+
                     repositories {
                         mavenCentral()
                     }
