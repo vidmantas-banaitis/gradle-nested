@@ -1,3 +1,4 @@
+println("configuration in build.gradle.kts")
 plugins{
     id("application")
 }

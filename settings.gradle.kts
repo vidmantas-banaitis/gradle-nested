@@ -3,7 +3,31 @@ rootProject.name = "gradle-nested"
 fun resolveProject(modulePath: String) {
     include(modulePath)
 
-    // enhance module based on key in ".p" file
+    project(modulePath).apply {
+        file(".p").useLines { lines ->
+            lines.forEach { line ->
+                when (line) {
+                    "group" -> {
+
+                    }
+                    "java" -> {
+//                        apply(plugin = "java")
+//                        apply(plugin = "io.spring.dependency-management")
+
+                    }
+
+                    "spring" -> {
+
+                    }
+
+                    "springboot" -> {
+//                        apply(plugin = "org.springframework.boot") // why this line fails???
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 fun recursiveInclude(parent: String, dir: File) {
