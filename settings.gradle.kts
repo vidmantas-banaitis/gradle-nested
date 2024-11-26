@@ -5,20 +5,20 @@ fun resolveModule(modulePath: String) {
     include(modulePath)
 
     project(modulePath).apply {
-        extra["extend"] = mutableListOf<Configurable<Project>>()
+        val extend = mutableListOf({})
         val config = file("$projectDir/.p")
         config.useLines { lines ->
             lines.forEach { line ->
                 println("  $line")
                 when (line) {
                     "group" -> {
-                        extra["extend"] += configure<Project> { }
+                        extend.add { }
                         // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO: group = "${parent!!.group}.${name}"
                     }
 
                     "java" -> {
-                        extra["extend"] += configure<Project> { }
+                        extend.add { }
                         // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // apply(plugin = "java")
@@ -36,7 +36,7 @@ fun resolveModule(modulePath: String) {
                     }
 
                     "spring" -> {
-                        extra["extend"] += configure<Project> { }
+                        extend.add { }
                         // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // dependencies {
@@ -45,7 +45,7 @@ fun resolveModule(modulePath: String) {
                     }
 
                     "springboot" -> {
-                        extra["extend"] += configure<Project> {  }
+                        extend.add { }
                         // TODO: configuration or extension to project to be used in build.gradle.kts
                         // TODO:
                         // apply(plugin = "org.springframework.boot")
@@ -57,6 +57,8 @@ fun resolveModule(modulePath: String) {
                 }
             }
         }
+
+        extra["extend"] = extend
     }
 }
 
