@@ -10,4 +10,5 @@ plugins {
 
 subprojects {
     println("$name in main build.gradle.kts")
+
 }

@@ -1,9 +1,5 @@
-import org.gradle.kotlin.dsl.jacoco
-
 plugins {
     `java-library`
-    jacoco
-    checkstyle
 }
 
 repositories {
@@ -11,7 +7,14 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    withSourcesJar()
+}
+
 dependencies {
+    api("org.slf4j:slf4j-api")
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

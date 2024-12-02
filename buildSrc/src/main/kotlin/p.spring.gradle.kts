@@ -1,4 +1,8 @@
 
 plugins {
-    id("p.java")
+
+}
+
+dependencies{
+    implementation("org.springframework.core:spring-core")
 }

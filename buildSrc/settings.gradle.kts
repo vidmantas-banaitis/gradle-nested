@@ -1,10 +1,4 @@
 
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,3 +8,9 @@ pluginManagement {
     }
 }
 
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
