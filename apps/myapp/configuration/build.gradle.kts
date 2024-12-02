@@ -1,6 +1,8 @@
 println("configuration in build.gradle.kts")
 plugins{
-    id("application")
+//    id("application")
+    id("p.java")
+    id("p.springboot")
 }
 
 dependencies{
