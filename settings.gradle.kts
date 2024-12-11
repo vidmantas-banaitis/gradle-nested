@@ -6,7 +6,7 @@ fun resolveModule(modulePath: String) {
 }
 
 fun recursiveInclude(prefix: String, dir: File) {
-    dir.listFiles().forEach {
+    dir.listFiles()?.forEach {
         if (it.isDirectory && !it.name.equals("buildSrc") && it.resolve("build.gradle.kts").exists()) {
             val modulePath = "$prefix${it.name}"
 

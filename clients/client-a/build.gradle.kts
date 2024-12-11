@@ -1,6 +1,7 @@
 println("client-a in build.gradle.kts")
 plugins{
     id("p.java")
+    id("p.spring")
 
 }
 dependencies {
