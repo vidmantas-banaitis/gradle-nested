@@ -1,7 +1,6 @@
 println("a-adapter in build.gradle.kts")
 plugins{
-    id("p.java")
-    id("p.spring")
+    id("p.module")
 }
 dependencies{
     implementation(project(":clients:client-a"))

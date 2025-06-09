@@ -1,8 +1,6 @@
 println("configuration in build.gradle.kts")
 plugins{
-    id("p.java")
-    id("p.spring")
-    id("org.springframework.boot")
+    id("p.application")
 }
 
 dependencies{
@@ -12,3 +10,4 @@ dependencies{
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 }
+

@@ -2,7 +2,6 @@ package p
 
 plugins {
     `java-library`
-//    id("p.jacoco")
 }
 
 repositories {
@@ -15,11 +14,7 @@ java {
     withSourcesJar()
 }
 
-dependencies {
-    api("org.slf4j:slf4j-api")
 
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
 
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"

@@ -1,9 +1,7 @@
 println("client-a in build.gradle.kts")
 plugins{
-    id("p.java")
-    id("p.spring")
+    id("p.module")
 
 }
 dependencies {
-//    implementation("org.slf4j:slf4j-api")
 }

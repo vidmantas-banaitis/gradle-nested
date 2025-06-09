@@ -1,9 +1,0 @@
-[versions]
-spring-boot-plugin-version = "3.4.0"
-
-[libraries]
-spring-boot-gradle-plugin = { group = "org.springframework.boot", name = "spring-boot-gradle-plugin", version.ref = "spring-boot-plugin-version" }
-slf4jApi = { group = "org.slf4j", name = "slf4j-api", version = "1.7.30" }
-
-[plugins]
-springBoot = { id = "org.springframework.boot", version.ref = "spring-boot-plugin-version" }
