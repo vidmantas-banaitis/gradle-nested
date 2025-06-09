@@ -1,5 +1,12 @@
 rootProject.name = "gradle-nested"
 
+pluginManagement {
+    plugins {
+        id("io.spring.dependency-management") version "1.1.6" apply false
+        id("org.springframework.boot") version "3.4.0" apply false
+    }
+}
+
 fun resolveModule(modulePath: String) {
     println("including: $modulePath")
     include(modulePath)

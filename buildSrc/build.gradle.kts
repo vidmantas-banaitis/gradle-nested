@@ -3,10 +3,13 @@ plugins {
 }
 
 repositories {
+    mavenLocal()
+    mavenCentral()
     gradlePluginPortal()
 }
 
 dependencies {
-    implementation(libs.spring.boot.gradle.plugin)
-    implementation(libs.slf4jApi)
+    implementation("io.spring.gradle:dependency-management-plugin:1.1.4")
+//    implementation(libs.spring.boot.gradle.plugin)
+//    implementation(libs.slf4jApi)
 }

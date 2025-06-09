@@ -1,13 +1,11 @@
-package p
-
-plugins {
-    `java-library`
-    id("org.springframework.boot")
-
-}
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-apply(plugin = "io.spring.dependency-management")
-
+//package p
+//
+//plugins {
+//    `java-library`
+//    id("p.spring")
+////    id("io.spring.dependency-management")
+//    id("org.springframework.boot")
+//}
+//
+//
+////

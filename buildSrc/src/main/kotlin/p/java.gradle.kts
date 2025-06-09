@@ -2,6 +2,7 @@ package p
 
 plugins {
     `java-library`
+//    id("p.jacoco")
 }
 
 repositories {
@@ -16,7 +17,6 @@ java {
 
 dependencies {
     api("org.slf4j:slf4j-api")
-
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

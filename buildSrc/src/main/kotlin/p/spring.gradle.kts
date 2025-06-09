@@ -1,12 +1,12 @@
 package p
 plugins {
     `java-library`
-
+    id("p.java")
+    id("io.spring.dependency-management")
 }
-apply(plugin = "io.spring.dependency-management")
 
-
-repositories {
-    mavenLocal()
-    mavenCentral()
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:3.2.6")
+    }
 }
