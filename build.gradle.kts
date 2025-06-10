@@ -1,13 +1,12 @@
 group = "org.example"
 version = "1.0.0-SNAPSHOT"
-plugins {
 
-//    alias(libs.plugins.springBoot) apply false
-//    id("io.spring.dependency-management") version "1.1.6"
+plugins {
+    id("p.dependencies")
+    id("jacoco-report-aggregation")
 }
 
-
-buildscript{
+buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
@@ -20,5 +19,18 @@ buildscript{
 
 subprojects {
     println("$name in main build.gradle.kts")
-
+    afterEvaluate {
+        if (plugins.hasPlugin("jacoco")) {
+            rootProject.dependencies { jacocoAggregation(project) }
+        }
+    }
 }
+
+reporting {
+    reports {
+        val testCodeCoverageReport by creating(JacocoCoverageReport::class) {
+            testSuiteName = "test"
+        }
+    }
+}
+

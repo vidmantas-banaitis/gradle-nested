@@ -9,7 +9,7 @@ plugins{
 
 
 dependencies {
-    api("org.slf4j:slf4j-api")
+    implementation("org.slf4j:slf4j-api")
 
     runtimeOnly("ch.qos.logback:logback-classic")
 

@@ -4,6 +4,11 @@ plugins {
     id("io.spring.dependency-management")
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencyManagement {
     dependencies{
 //        dependency("org.slf4j:slf4j-api:1.7.36")
