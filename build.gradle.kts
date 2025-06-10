@@ -28,9 +28,39 @@ subprojects {
 
 reporting {
     reports {
-        val testCodeCoverageReport by creating(JacocoCoverageReport::class) {
+        val rootCodeCoverageReport by creating(JacocoCoverageReport::class) {
             testSuiteName = "test"
         }
     }
+}
+
+tasks.named<JacocoReport>("rootCodeCoverageReport") {
+    subprojects {
+        if (plugins.hasPlugin("jacoco")) {
+            dependsOn(tasks.named<JacocoReport>("jacocoTestReport"))
+        }
+    }
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
+
+tasks.register("clean") {
+    group = "build"
+    description = "Clean tests build"
+    delete(project.layout.buildDirectory)
+}
+
+tasks.register("check") {
+    group = "verification"
+    description = "Run all checks including tests and code coverage"
+    dependsOn(tasks.named("rootCodeCoverageReport"))
+}
+
+tasks.register("build") {
+    group = "build"
+    description = "Build the project including all subprojects"
+    dependsOn(tasks.named("check"))
 }
 
